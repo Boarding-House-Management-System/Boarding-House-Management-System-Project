@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
 
 // material-ui
 import {
@@ -23,7 +23,7 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 
 // project import
-import FirebaseSocial from './FirebaseSocial';
+// import FirebaseSocial from './FirebaseSocial';
 import AnimateButton from 'components/@extended/AnimateButton';
 
 // assets
@@ -42,6 +42,13 @@ const AuthLogin = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const navigate = useNavigate();
+  const useRegisterButton = () => {
+    navigate('/register');
+  };
+
+  const registerButtonHandler = useRegisterButton();
 
   return (
     <>
@@ -158,11 +165,25 @@ const AuthLogin = () => {
               </Grid>
               <Grid item xs={12}>
                 <Divider>
-                  <Typography variant="caption"> Login with</Typography>
+                  <Typography variant="caption"> OR</Typography>
                 </Divider>
               </Grid>
               <Grid item xs={12}>
-                <FirebaseSocial />
+                {/* <FirebaseSocial /> */}
+                <AnimateButton>
+                  <Button
+                    disableElevation
+                    disabled={isSubmitting}
+                    onClick={registerButtonHandler}
+                    fullWidth
+                    size="large"
+                    type="button"
+                    variant="outlined"
+                    color="primary"
+                  >
+                    Get Registration Link
+                  </Button>
+                </AnimateButton>
               </Grid>
             </Grid>
           </form>
