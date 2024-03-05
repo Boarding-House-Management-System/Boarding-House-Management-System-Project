@@ -72,24 +72,27 @@ const status = [
 const DashboardDefault = () => {
   const [value, setValue] = useState('today');
   const [slot, setSlot] = useState('week');
+  const revenue = 78000;
+  const expenses = 18800;
+  const profit = revenue - expenses;
 
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
-      {/* row 1 */}
-      <Grid item xs={12} sx={{ mb: -2.25 }}>
-        <Typography variant="h5">Dashboard</Typography>
-      </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
-        <AnalyticEcommerce title="Total Tenants" count="500"  extra="35,000" />
-      </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
-        <AnalyticEcommerce title="Total Users" count="78,250"  extra="8,900" />
-      </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
-        <AnalyticEcommerce title="Total Order" count="18,800"   extra="1,943" />
-      </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
-        <AnalyticEcommerce title="Total Sales" count="$35,078"   extra="$20,395" />
+      
+        <Grid item xs={12} sx={{ mb: -2.25 }}>
+          <Typography variant="h5">Dashboard</Typography>
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <AnalyticEcommerce title="Total Tenants" count="500"  extra="35,000" />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <AnalyticEcommerce title="Total Revenue" count={`${revenue} LKR`}  extra="8,900" />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <AnalyticEcommerce title="Total Expenses" count={`${expenses} LKR`}   extra="1,943" />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={3}>
+          <AnalyticEcommerce title="Total Profit" count={`${profit} LKR`}   extra="$20,395" />
       </Grid>
 
       <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} />
