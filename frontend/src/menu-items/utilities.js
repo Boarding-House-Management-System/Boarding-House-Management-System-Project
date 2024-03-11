@@ -4,13 +4,15 @@ import {
   AntDesignOutlined,
   BarcodeOutlined,
   BgColorsOutlined,
-  FontSizeOutlined,
+  //FontSizeOutlined,
+  HomeOutlined,
   LoadingOutlined
 } from '@ant-design/icons';
 
 // icons
 const icons = {
-  FontSizeOutlined,
+  //FontSizeOutlined,
+  HomeOutlined,
   BgColorsOutlined,
   BarcodeOutlined,
   AntDesignOutlined,
@@ -22,22 +24,22 @@ const icons = {
 
 const utilities = {
   id: 'utilities',
-  title: 'Utilities',
+  title: 'Hostels',
   type: 'group',
   children: [
     {
       id: 'util-typography',
-      title: 'Typography',
+      title: 'Hostel Overview',
       type: 'item',
       url: '/typography',
-      icon: icons.FontSizeOutlined
+      icon: icons.HomeOutlined
     },
     {
       id: 'util-color',
-      title: 'Color',
+      title: 'Hostel Adding',
       type: 'item',
       url: '/color',
-      icon: icons.BgColorsOutlined
+      icon: icons.AppstoreAddOutlined
     },
     {
       id: 'util-shadow',
