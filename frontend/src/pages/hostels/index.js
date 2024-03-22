@@ -8,20 +8,10 @@ import {
 
 // project import
 import OrdersTable from './OrdersTable';
-import IncomeAreaChart from './IncomeAreaChart';
-import MonthlyBarChart from './MonthlyBarChart';
-import ReportAreaChart from './ReportAreaChart';
-import SalesColumnChart from './SalesColumnChart';
 import MainCard from 'components/MainCard';
 import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
 
 // assets
-import { GiftOutlined, MessageOutlined, SettingOutlined } from '@ant-design/icons';
-import avatar1 from 'assets/images/users/avatar-1.png';
-import avatar2 from 'assets/images/users/avatar-2.png';
-import avatar3 from 'assets/images/users/avatar-3.png';
-import avatar4 from 'assets/images/users/avatar-4.png';
-import ComponentSkeleton from 'pages/components-overview/ComponentSkeleton';
 import ComponentTypography from 'pages/components-overview/Typography';
 import SearchHostel from 'components/forms/searchhostel.form';
 
@@ -30,7 +20,7 @@ const avatarSX = {
   width: 36,
   height: 36,
   fontSize: '1rem'
-};
+}; 
 
 // action style
 const actionSX = {
