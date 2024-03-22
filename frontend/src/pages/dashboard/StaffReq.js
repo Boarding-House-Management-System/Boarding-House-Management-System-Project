@@ -13,7 +13,7 @@ const staffData = [
   { name: 'Themal Lakruwan', email: 'chamath.sandaru@gmail.com', phone: '071 123 4567', role: 'OWNER' },
   { name: 'Romesh Sugathapala', email: 'romesh.sugathapala@gmail.com', phone: '071 123 4567', role: 'FINANCE' },
   { name: 'Roshan Bandara', email: 'dineth.jayakodi@gmail.com', phone: '071 123 4567', role: 'ADMIN' }
-];
+];//edited
 
 export default function StaffReq() {
   const [openDialog, setOpenDialog] = useState(false);
