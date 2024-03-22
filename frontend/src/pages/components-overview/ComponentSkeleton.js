@@ -9,7 +9,7 @@ import MainCard from 'components/MainCard';
 
 // ===============================|| COMPONENT - SKELETON ||=============================== //
 
-const ComponentSkeleton = ({ children }) => {
+const   ComponentSkeleton = ({ children }) => {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(false);
