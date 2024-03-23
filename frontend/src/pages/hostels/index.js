@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
 // material-ui
 import { 
@@ -15,43 +15,44 @@ import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
 import ComponentTypography from 'pages/components-overview/Typography';
 import SearchHostel from 'components/forms/searchhostel.form';
 
-// avatar style
-const avatarSX = {
-  width: 36,
-  height: 36,
-  fontSize: '1rem'
-}; 
+// // avatar style
+// const avatarSX = {
+//   width: 36,
+//   height: 36,
+//   fontSize: '1rem'
+// };
 
-// action style
-const actionSX = {
-  mt: 0.75,
-  ml: 1,
-  top: 'auto',
-  right: 'auto',
-  alignSelf: 'flex-start',
-  transform: 'none'
-};
+// // action style
+// const actionSX = {
+//   mt: 0.75,
+//   ml: 1,
+//   top: 'auto',
+//   right: 'auto',
+//   alignSelf: 'flex-start',
+//   transform: 'none'
+// };
 
 // sales report status
-const status = [
-  {
-    value: 'today',
-    label: 'Today'
-  },
-  {
-    value: 'month',
-    label: 'This Month'
-  },
-  {
-    value: 'year',
-    label: 'This Year'
-  }
-];
+// const status = [
+//   {
+//     value: 'today',
+//     label: 'Today'
+//   },
+//   {
+//     value: 'month',
+//     label: 'This Month'
+//   },
+//   {
+//     value: 'year',
+//     label: 'This Year'
+//   }
+// ];
 
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
 const HostelDashboard = () => {
-
+  // const [value, setValue] = useState('today');
+  // const [slot, setSlot] = useState('week');
   const revenue = 78000;
   const expenses = 18800;
   const profit = revenue - expenses;
@@ -193,4 +194,3 @@ const HostelDashboard = () => {
 };
 
 export default HostelDashboard;
-
