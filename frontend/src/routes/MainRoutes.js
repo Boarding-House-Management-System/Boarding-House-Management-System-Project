@@ -9,7 +9,13 @@ import HostelDashboard from 'pages/hostels/index';
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
 
 // render - sample page
-const SamplePage = Loadable(lazy(() => import('pages/extra-pages/SamplePage')));
+const Finance = Loadable(lazy(() => import('pages/Finance/FinancePage')));
+
+// render - hostels
+const Hostels = Loadable(lazy(()=>import('pages/hostels')));
+
+// render - tenants
+const Tenants = Loadable(lazy(()=>import('pages/tenants/TenantsPage')));
 
 // render - utilities
 // const Typography = Loadable(lazy(() => import('pages/components-overview/Typography')));
@@ -42,7 +48,7 @@ const MainRoutes = {
     },
     {
       path: 'sample-page',
-      element: <SamplePage />
+      element: <Finance />
     },
     {
       path: 'shadow',
@@ -55,6 +61,18 @@ const MainRoutes = {
     {
       path: 'icons/ant',
       element: <AntIcons />
+    },
+    {
+      path: 'hostels',
+      element:<Hostels/>
+    },
+    {
+      path: 'finance',
+      element:<Finance/>
+    },
+    {
+      path:'tenants',
+      element:<Tenants/>
     }
   ]
 };
