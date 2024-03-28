@@ -1,6 +1,6 @@
 // material-ui
 import { Grid, Stack } from '@mui/material';
-import BHMS from './../../assets/images/login_illustrator.png';
+// import BHMS from './../../assets/images/login_illustrator.png';
 
 // project import
 import ComponentSkeleton from './ComponentSkeleton';
