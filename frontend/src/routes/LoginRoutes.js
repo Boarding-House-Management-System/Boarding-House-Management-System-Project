@@ -5,6 +5,7 @@ import Loadable from 'components/Loadable';
 import MinimalLayout from 'layout/MinimalLayout';
 
 // render - login
+const Land = Loadable(lazy(() => import('pages/landing/Landing')));
 const AuthLogin = Loadable(lazy(() => import('pages/authentication/Login')));
 const AuthRegister = Loadable(lazy(() => import('pages/authentication/Register')));
 
@@ -14,6 +15,10 @@ const LoginRoutes = {
   path: '/',
   element: <MinimalLayout />,
   children: [
+    {
+      path: 'home',
+      element: <Land />
+    },
     {
       path: 'login',
       element: <AuthLogin />

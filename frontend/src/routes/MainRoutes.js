@@ -12,10 +12,10 @@ const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
 const Finance = Loadable(lazy(() => import('pages/Finance/FinancePage')));
 
 // render - hostels
-const Hostels = Loadable(lazy(()=>import('pages/hostels')));
+const Hostels = Loadable(lazy(() => import('pages/hostels')));
 
 // render - tenants
-const Tenants = Loadable(lazy(()=>import('pages/tenants/TenantsPage')));
+const Tenants = Loadable(lazy(() => import('pages/tenants/TenantsPage')));
 
 // render - utilities
 // const Typography = Loadable(lazy(() => import('pages/components-overview/Typography')));
@@ -56,7 +56,7 @@ const MainRoutes = {
     },
     {
       path: 'addHostel',
-      element: <HostelDashboard/>
+      element: <HostelDashboard />
     },
     {
       path: 'icons/ant',
@@ -64,15 +64,15 @@ const MainRoutes = {
     },
     {
       path: 'hostels',
-      element:<Hostels/>
+      element: <Hostels />
     },
     {
       path: 'finance',
-      element:<Finance/>
+      element: <Finance />
     },
     {
-      path:'tenants',
-      element:<Tenants/>
+      path: 'tenants',
+      element: <Tenants />
     }
   ]
 };

@@ -11,7 +11,7 @@ import MainCard from 'components/MainCard';
 
 // ==============================|| STATISTICS - ECOMMERCE CARD  ||============================== //
 
-const AnalyticEcommerce = ({ color, title, count,extra }) => (
+const AnalyticEcommerce = ({ color, title, count, extra }) => (
   <MainCard contentSX={{ p: 2.25 }}>
     <Stack spacing={0.5}>
       <Typography variant="h6" color="textSecondary">
