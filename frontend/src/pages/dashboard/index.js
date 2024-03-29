@@ -20,8 +20,6 @@ import {
 
 // project import
 import OrdersTable from './OrdersTable';
-import IncomeAreaChart from './IncomeAreaChart';
-import MonthlyBarChart from './MonthlyBarChart';
 import ReportAreaChart from './ReportAreaChart';
 import SalesColumnChart from './SalesColumnChart';
 import MainCard from 'components/MainCard';
@@ -33,6 +31,8 @@ import avatar1 from 'assets/images/users/avatar-1.png';
 import avatar2 from 'assets/images/users/avatar-2.png';
 import avatar3 from 'assets/images/users/avatar-3.png';
 import avatar4 from 'assets/images/users/avatar-4.png';
+import TenantReq from './TenantReq';
+import StaffReq from './StaffReq';
 
 // avatar style
 const avatarSX = {
@@ -71,14 +71,14 @@ const status = [
 
 const DashboardDefault = () => {
   const [value, setValue] = useState('today');
-  const [slot, setSlot] = useState('week');
+  // const [slot, setSlot] = useState('week');
   const revenue = 78000;
   const expenses = 18800;
   const profit = revenue - expenses;
 
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
-      
+
         <Grid item xs={12} sx={{ mb: -2.25 }}>
           <Typography variant="h5">Dashboard</Typography>
         </Grid>
@@ -93,15 +93,16 @@ const DashboardDefault = () => {
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={3}>
           <AnalyticEcommerce title="Total Profit" count={`${profit} LKR`}   extra="$20,395" />
-      </Grid>
+        </Grid>
+
 
       <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} />
 
       {/* row 2 */}
-      <Grid item xs={12} md={7} lg={8}>
+      {/* <Grid item xs={12} md={7} lg={6}>
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
-            <Typography variant="h5">Unique Visitor</Typography>
+            <Typography variant="h5">Staff Requests</Typography>
           </Grid>
           <Grid item>
             <Stack direction="row" alignItems="center" spacing={0}>
@@ -129,24 +130,45 @@ const DashboardDefault = () => {
             <IncomeAreaChart slot={slot} />
           </Box>
         </MainCard>
-      </Grid>
-      <Grid item xs={12} md={5} lg={4}>
+      </Grid> */}
+      <Grid item xs={12} md={5} lg={6}>
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
-            <Typography variant="h5">Income Overview</Typography>
+            <Typography variant="h5">Staff Requests</Typography>
           </Grid>
           <Grid item />
         </Grid>
         <MainCard sx={{ mt: 2 }} content={false}>
           <Box sx={{ p: 3, pb: 0 }}>
             <Stack spacing={2}>
-              <Typography variant="h6" color="textSecondary">
+              {/* <Typography variant="h6" color="textSecondary">
                 This Week Statistics
-              </Typography>
-              <Typography variant="h3">$7,650</Typography>
+              </Typography> */}
+              {/* <Typography variant="h3">$7,650</Typography> */}
             </Stack>
           </Box>
-          <MonthlyBarChart />
+          <StaffReq />
+
+        </MainCard>
+      </Grid>
+      <Grid item xs={12} md={5} lg={6}>
+        <Grid container alignItems="center" justifyContent="space-between">
+          <Grid item>
+            <Typography variant="h5">Tenants Requests</Typography>
+          </Grid>
+          <Grid item />
+        </Grid>
+        <MainCard sx={{ mt: 2 }} content={false}>
+          <Box sx={{ p: 3, pb: 0 }}>
+            <Stack spacing={2}>
+              {/* <Typography variant="h6" color="textSecondary">
+                This Week Statistics
+              </Typography> */}
+              {/* <Typography variant="h3">$7,650</Typography> */}
+            </Stack>
+          </Box>
+          <TenantReq />
+
         </MainCard>
       </Grid>
 

@@ -1,6 +1,6 @@
 // material-ui
 import { Grid, Stack } from '@mui/material';
-import BHMS from './../../assets/images/login_illustrator.png';
+// import BHMS from './../../assets/images/login_illustrator.png';
 
 // project import
 import ComponentSkeleton from './ComponentSkeleton';
@@ -15,7 +15,7 @@ import Form from './SearchHos';
 const ComponentTypography = () => (
   <ComponentSkeleton>
     <Grid container spacing={3}>
-      <Grid item xs={10} lg={4}>
+      <Grid item xs={10} lg={12}>
         <Stack spacing={3}>
           <MainCard title="Search a Hostel" codeHighlight>
             <Stack spacing={0.75} sx={{ mt: -1.5 }}>
@@ -23,16 +23,6 @@ const ComponentTypography = () => (
               <div></div>
               <Form />
             </Stack>
-          </MainCard>
-        </Stack>
-      </Grid>
-
-      <Grid item xs={12} lg={8}>
-        <Stack spacing={3}>
-          <MainCard title="" codeHighlight>
-            <>
-              <img src={BHMS} alt="BHMS" width={350}></img>
-            </>
           </MainCard>
         </Stack>
       </Grid>
