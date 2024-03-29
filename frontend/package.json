@@ -2,10 +2,7 @@
   "name": "boarding-house-management-system",
   "version": "1.2.0",
   "private": true,
-<<<<<<< HEAD
-=======
   "homepage": " ",
->>>>>>> 28f084364af87cabf1001e33ecc87204c0b99f33
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
     "@ant-design/icons": "^5.2.6",
