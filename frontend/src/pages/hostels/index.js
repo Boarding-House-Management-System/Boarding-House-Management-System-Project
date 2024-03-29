@@ -9,8 +9,8 @@ import MainCard from 'components/MainCard';
 import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
 
 // assets
-import ComponentTypography from 'pages/components-overview/Typography';
-import SearchHostel from 'components/forms/searchhostel.form';
+
+import { Button, Paper, TextField } from '../../../node_modules/@mui/material/index';
 
 // // avatar style
 // const avatarSX = {
@@ -72,7 +72,7 @@ const HostelDashboard = () => {
         <AnalyticEcommerce title="Total Profit" count={`${profit} LKR`} extra="$20,395" />
       </Grid>
 
-      <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} />
+      {/* <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} /> */}
 
       {/* row 2 */}
       {/* <Grid item xs={12} md={7} lg={8}>
@@ -165,26 +165,53 @@ const HostelDashboard = () => {
         </MainCard>
       </Grid> */}
 
+      <Grid item xs={12} md={12} lg={3}>
+        <Paper sx={{ pl: 4, pr: 4 }}>
+          <Typography variant="h5" sx={{ pt: 2 }}>
+            Search a Hostel
+          </Typography>
+          <Typography sx={{ pt: 2 }}>Please add the hostel name and relevant room ID </Typography>
+          <form>
+            <TextField sx={{ mt: 2 }} id="Name" label="Name " variant="outlined" />
+            <br />
+            <TextField sx={{ mt: 2 }} id="RoomID" label="Room ID " variant="outlined" />
+          </form>
+          <Button sx={{ mt: 2, mb: 2 }} variant="contained">
+            Search
+          </Button>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12} md={12} lg={9}>
+        <Paper sx={{ pl: 4, pr: 4, pb: 4 }}>
+          <Typography variant="h5" sx={{ pt: 2 }}>
+            Add a Hostel
+          </Typography>
+          <Typography sx={{ pt: 2 }}>Please fill the following details to add a new hostel.</Typography>
+          <form>
+            <TextField fullWidth sx={{ mt: 2 }} id="Name" label="Hostel Name " variant="outlined" />
+            <br />
+            <TextField fullWidth sx={{ mt: 2 }} id="HostelID" label="Hostel ID " variant="outlined" />
+            <br />
+            <TextField fullWidth sx={{ mt: 2 }} id="HostelLocation" label="Hostel Location " variant="outlined" />
+            <br />
+            <TextField fullWidth sx={{ mt: 2 }} id="HostelFloors" label="Total Floors " variant="outlined" />
+            <br />
+
+            {/* Floor 1 */}
+            <Typography sx={{ mt: 2 }}>Floor 1</Typography>
+            <TextField sx={{ mt: 1, mr: 1 }} id="StartRoom" label="Starting Room " variant="outlined" />
+            <TextField sx={{ mt: 1, mr: 1 }} id="EndRoom" label="Ending Room " variant="outlined" />
+            <TextField sx={{ mt: 1, mr: 1 }} id="TenantPerRoom" label="Tenants Per Room " variant="outlined" />
+            <br />
+          </form>
+          <Button sx={{ mt: 2, minWidth: '120px' }} variant="contained">
+            Add
+          </Button>
+        </Paper>
+      </Grid>
+
       {/* row 4 */}
-      <Grid item xs={12} md={7} lg={4}>
-        <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item>
-            <Typography variant="h5">Search a hostel</Typography>
-          </Grid>
-        </Grid>
-        {/* <ComponentTypography></ComponentTypography> */}
-        <SearchHostel></SearchHostel>
-      </Grid>
-      <Grid item xs={12} md={5} lg={8}>
-        <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item>
-            <Typography variant="h5">Add a New Hostel</Typography>
-          </Grid>
-          <Grid item />
-        </Grid>
-        <ComponentTypography></ComponentTypography>
-        {/* <ComponentSkeleton></ComponentSkeleton> */}
-      </Grid>
     </Grid>
   );
 };
