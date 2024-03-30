@@ -54,7 +54,7 @@ const AuthLogin = () => {
     <>
       <Formik
         initialValues={{
-          email: 'info@codedthemes.com',
+          email: 'name@BHMS.com',
           password: '123456',
           submit: null
         }}
