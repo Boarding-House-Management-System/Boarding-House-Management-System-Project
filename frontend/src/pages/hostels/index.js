@@ -4,6 +4,8 @@ import ROPopup from '../components-overview/RoomOverviewPopup';
 // material-ui
 import { Grid, Typography } from '@mui/material';
 
+import { useState } from 'react';
+
 // project import
 import OrdersTable from './OrdersTable';
 import MainCard from 'components/MainCard';
@@ -15,38 +17,6 @@ import { Button, Paper, Popover, TextField } from '../../../node_modules/@mui/ma
 
 // export popover
 
-// // avatar style
-// const avatarSX = {
-//   width: 36,
-//   height: 36,
-//   fontSize: '1rem'
-// };
-
-// // action style
-// const actionSX = {
-//   mt: 0.75,
-//   ml: 1,
-//   top: 'auto',
-//   right: 'auto',
-//   alignSelf: 'flex-start',
-//   transform: 'none'
-// };
-
-// sales report status
-// const status = [
-//   {
-//     value: 'today',
-//     label: 'Today'
-//   },
-//   {
-//     value: 'month',
-//     label: 'This Month'
-//   },
-//   {
-//     value: 'year',
-//     label: 'This Year'
-//   }
-// ];
 
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
@@ -56,6 +26,12 @@ const HostelDashboard = () => {
   const revenue = 78000;
   const expenses = 18800;
   const profit = revenue - expenses;
+  const [floors, setFloors] = useState([]);
+
+  const handleFloorsChange = (event) => {
+    const floorCount = event.target.value;
+    setFloors(Array.from({ length: floorCount }, (_, i) => i + 1));
+  };
 
   // export popover
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -224,14 +200,24 @@ const HostelDashboard = () => {
             <br />
             <TextField fullWidth sx={{ mt: 2 }} id="HostelLocation" label="Hostel Location " variant="outlined" />
             <br />
-            <TextField fullWidth sx={{ mt: 2 }} id="HostelFloors" label="Total Floors " variant="outlined" />
+            <TextField fullWidth sx={{ mt: 2 }} id="HostelFloors" label="Total Floors " variant="outlined" onChange={handleFloorsChange} />
             <br />
 
-            {/* Floor 1 */}
+            {floors.map((floor) => (
+              <div key={floor}>
+                <Typography sx={{ mt: 2 }}>Floor {floor}</Typography>
+                <TextField sx={{ mt: 1, mr: 1 }} id={`StartRoom${floor}`} label="Starting Room " variant="outlined" />
+                <TextField sx={{ mt: 1, mr: 1 }} id={`EndRoom${floor}`} label="Ending Room " variant="outlined" />
+                <TextField sx={{ mt: 1, mr: 1 }} id={`TenantPerRoom${floor}`} label="Tenants Per Room " variant="outlined" />
+                <br />
+              </div>
+            ))}
+
+            {/* Floor 1
             <Typography sx={{ mt: 2 }}>Floor 1</Typography>
             <TextField sx={{ mt: 1, mr: 1 }} id="StartRoom" label="Starting Room " variant="outlined" />
             <TextField sx={{ mt: 1, mr: 1 }} id="EndRoom" label="Ending Room " variant="outlined" />
-            <TextField sx={{ mt: 1, mr: 1 }} id="TenantPerRoom" label="Tenants Per Room " variant="outlined" />
+            <TextField sx={{ mt: 1, mr: 1 }} id="TenantPerRoom" label="Tenants Per Room " variant="outlined" /> */}
             <br />
           </form>
           <Button sx={{ mt: 2, minWidth: '120px' }} variant="contained">

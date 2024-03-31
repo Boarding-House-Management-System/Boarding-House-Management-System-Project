@@ -2,6 +2,10 @@ import React from 'react';
 import { Box, Button, Stack, Typography } from '../../../node_modules/@mui/material/index';
 import LandImg from '../../assets/images/landingimg.png';
 
+const handleLogin = () => {
+  window.location.href = '/login';
+};
+
 function Landing() {
   return (
     <Stack direction={{ sm: 'column', md: 'row' }} display="flex">
@@ -15,10 +19,10 @@ function Landing() {
             administrators, ensuring efficiency and convenience at every step.
           </Typography>
           <Stack direction="row" spacing={4} sx={{ pl: 8 }}>
-            <Button variant="contained" width="12px" sx={{ fontSize: 18, fontWeight: 700, width: '170px' }}>
+            <Button variant="contained" width="12px" sx={{ fontSize: 18, fontWeight: 700, width: '170px' }} onClick={handleLogin}>
               Login as a tenant
             </Button>
-            <Button variant="contained" width="12px" sx={{ fontSize: 18, fontWeight: 700, width: '170px' }}>
+            <Button variant="contained" width="12px" sx={{ fontSize: 18, fontWeight: 700, width: '170px' }} onClick={handleLogin}>
               Login as an admin
             </Button>
           </Stack>
