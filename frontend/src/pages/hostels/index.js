@@ -1,4 +1,5 @@
-// import { useState } from 'react';
+import React from 'react';
+import ROPopup from '../components-overview/RoomOverviewPopup';
 
 // material-ui
 import { Grid, Typography } from '@mui/material';
@@ -10,7 +11,9 @@ import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
 
 // assets
 
-import { Button, Paper, TextField } from '../../../node_modules/@mui/material/index';
+import { Button, Paper, Popover, TextField } from '../../../node_modules/@mui/material/index';
+
+// export popover
 
 // // avatar style
 // const avatarSX = {
@@ -53,6 +56,20 @@ const HostelDashboard = () => {
   const revenue = 78000;
   const expenses = 18800;
   const profit = revenue - expenses;
+
+  // export popover
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
@@ -176,9 +193,21 @@ const HostelDashboard = () => {
             <br />
             <TextField sx={{ mt: 2 }} id="RoomID" label="Room ID " variant="outlined" />
           </form>
-          <Button sx={{ mt: 2, mb: 2 }} variant="contained">
+          <Button sx={{ mt: 2, mb: 2 }} variant="contained" onClick={handleClick}>
             Search
           </Button>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left'
+            }}
+          >
+            <ROPopup />
+          </Popover>
         </Paper>
       </Grid>
 
