@@ -10,6 +10,8 @@ import { Button, Grid, Paper, Popover, TextField } from '../../../node_modules/@
 // test import
 import TOPopup from '../components-overview/TenantOverviewPopup';
 
+import TenantDashBoardComp1 from 'pages/dashboard/TenentDashBoardComp1';
+
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const TenantsPage = () => {
@@ -105,6 +107,8 @@ const TenantsPage = () => {
       {/* <Grid item xs={12}>
       <Pop />
     </Grid> */}
+
+    <TenantDashBoardComp1/>
     </Grid>
   );
 };
