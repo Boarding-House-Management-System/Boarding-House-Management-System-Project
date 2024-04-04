@@ -39,16 +39,19 @@ const AuthLogin = () => {
     setShowPassword(!showPassword);
   };
 
+  const handleLogin = () => {
+    navigate('/dashboard/default');
+  };
+
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
 
   const navigate = useNavigate();
-  const useRegisterButton = () => {
-    navigate('/register');
-  };
 
-  const registerButtonHandler = useRegisterButton();
+  const registerButtonHandler = () => {
+    navigate('/register-request');
+  };
 
   return (
     <>
@@ -158,7 +161,16 @@ const AuthLogin = () => {
               )}
               <Grid item xs={12}>
                 <AnimateButton>
-                  <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">
+                  <Button
+                    disableElevation
+                    disabled={isSubmitting}
+                    fullWidth
+                    size="large"
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    onClick={handleLogin}
+                  >
                     Login
                   </Button>
                 </AnimateButton>
@@ -172,8 +184,8 @@ const AuthLogin = () => {
                 {/* <FirebaseSocial /> */}
                 <AnimateButton>
                   <Button
-                    disableElevation
-                    disabled={isSubmitting}
+                    // disableElevation
+                    // disabled={isSubmitting}
                     onClick={registerButtonHandler}
                     fullWidth
                     size="large"

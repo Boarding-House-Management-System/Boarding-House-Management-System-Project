@@ -19,11 +19,21 @@ function Landing() {
             administrators, ensuring efficiency and convenience at every step.
           </Typography>
           <Stack direction="row" spacing={4} sx={{ pl: 8 }}>
-            <Button variant="contained" width="12px" sx={{ fontSize: 18, fontWeight: 700, width: '170px' }} onClick={handleLogin}>
-              Login as a tenant
+            <Button
+              variant="contained"
+              width="12px"
+              sx={{ fontSize: 18, fontWeight: 700, width: '170px', textTransform: 'none' }}
+              onClick={handleLogin}
+            >
+              Login as a Tenant
             </Button>
-            <Button variant="contained" width="12px" sx={{ fontSize: 18, fontWeight: 700, width: '170px' }} onClick={handleLogin}>
-              Login as an admin
+            <Button
+              variant="outlined"
+              width="12px"
+              sx={{ fontSize: 18, fontWeight: 700, width: '170px', textTransform: 'none' }}
+              onClick={handleLogin}
+            >
+              Login as an Admin
             </Button>
           </Stack>
         </Stack>

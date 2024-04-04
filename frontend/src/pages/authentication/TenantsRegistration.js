@@ -7,7 +7,7 @@ import Stepper from '../components-overview/SignUpStepper';
 // MUI imports
 import { Box, Stack, Typography } from '../../../node_modules/@mui/material/index';
 
-const TenantsRegistrationLinkRequest = () => {
+const TenantsRegistration = () => {
   return (
     <Stack direction={{ sm: 'column', md: 'row' }} display="flex" justifyContent="center" alignItems="center">
       <Box
@@ -43,4 +43,4 @@ const TenantsRegistrationLinkRequest = () => {
   );
 };
 
-export default TenantsRegistrationLinkRequest;
+export default TenantsRegistration;
