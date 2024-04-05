@@ -2,7 +2,6 @@ import React from 'react';
 
 // material-ui
 import { Typography } from '@mui/material';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 // project import
 import { Button, Grid, Paper, Popover, TextField } from '../../../node_modules/@mui/material/index';
@@ -11,12 +10,14 @@ import { Button, Grid, Paper, Popover, TextField } from '../../../node_modules/@
 import TOPopup from '../components-overview/TenantOverviewPopup';
 
 import TenantDashBoardComp1 from 'pages/dashboard/TenentDashBoardComp1';
+import GenerateToken from './GenerateToken';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const TenantsPage = () => {
   // export popover
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const role='TENANT';
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -32,18 +33,18 @@ const TenantsPage = () => {
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
       {/* Search A Tenant */}
-      <Grid item xs={12} md={12} lg={3}>
+      <Grid item xs={12} md={12} lg={4}>
         <Paper sx={{ pl: 4, pr: 4 }}>
           <Typography variant="h5" sx={{ pt: 2 }}>
             Search a Tenant
           </Typography>
           <Typography sx={{ pt: 2 }}>Please add the tenant’s NIC </Typography>
-          <form>
+          <div>
             <TextField sx={{ mt: 2 }} id="TenantNIC" label="Tenant’s NIC " variant="outlined" />
-          </form>
-          <Button sx={{ mt: 2, mb: 2 }} variant="contained" onClick={handleClick}>
-            Search
-          </Button>
+            <Button sx={{ mt: 2.3, mb: 2, ml: 2 }} variant="contained" onClick={handleClick}>
+              Search
+            </Button>
+          </div>
           <Popover
             id={id}
             open={open}
@@ -59,8 +60,17 @@ const TenantsPage = () => {
         </Paper>
       </Grid>
 
+      <Grid item xs={12} md={12} lg={8}>
+        <Paper sx={{ pl: 4, pr: 4 }}>
+        <Typography variant="h5" sx={{ pt: 2 }}>
+            Add a Tenant
+          </Typography>
+          <GenerateToken role={role} />
+        </Paper>
+      </Grid>
+
       {/* Add A Tenant */}
-      <Grid item xs={12} md={12} lg={9}>
+      {/* <Grid item xs={12} md={12} lg={9}>
         <Paper sx={{ pl: 4, pr: 4 }}>
           <Typography variant="h5" sx={{ pt: 2 }}>
             Add a Tenant
@@ -68,7 +78,7 @@ const TenantsPage = () => {
           <Typography sx={{ pt: 2 }}>Please generate a token </Typography>
 
           {/* Token Generation */}
-          <div>
+      {/* <div>
             <Button variant="outlined" sx={{ m: 2 }}>
               Generate a Token
             </Button>
@@ -83,10 +93,10 @@ const TenantsPage = () => {
             <Button sx={{ m: 2, ml: 0 }}>
               <ContentCopyIcon />
             </Button>
-          </div>
+          </div> */}
 
-          {/* Tenants Details        */}
-          <Typography sx={{ pt: 2 }}>Send generated token to: </Typography>
+      {/* Tenants Details        */}
+      {/* <Typography sx={{ pt: 2 }}>Send generated token to: </Typography>
           <form>
             <TextField
               fullWidth
@@ -102,13 +112,13 @@ const TenantsPage = () => {
             Send
           </Button>
         </Paper>
-      </Grid>
+      </Grid> */}
 
       {/* <Grid item xs={12}>
       <Pop />
     </Grid> */}
 
-    <TenantDashBoardComp1/>
+      <TenantDashBoardComp1 />
     </Grid>
   );
 };
