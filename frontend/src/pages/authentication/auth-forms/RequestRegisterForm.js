@@ -1,62 +1,49 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// material-ui
-import { Button, Divider, FormHelperText, Grid, InputLabel, OutlinedInput, Stack, Typography, MenuItem } from '@mui/material';
-
-// third party
-import * as Yup from 'yup';
+import { Button, Divider, Grid, InputLabel, OutlinedInput, Stack, Typography, MenuItem, Select } from '@mui/material';
 import { Formik } from 'formik';
-
-// project import
-// import FirebaseSocial from './FirebaseSocial';
-import AnimateButton from 'components/@extended/AnimateButton';
-import { Select } from '../../../../node_modules/@mui/material/index';
-
-// ============================|| FIREBASE - LOGIN ||============================ //
+import * as Yup from 'yup'; // Import Yup for validation
+import { FormHelperText } from '../../../../node_modules/@mui/material/index';
 
 const RequestRegister = () => {
   const navigate = useNavigate();
-  const [role, setRole] = React.useState('');
 
-  const handleRoleChange = (event) => {
-    setRole(event.target.value);
-  };
-
-  const handleRequest = () => {
-    navigate('/');
+  const handleRequest = async (values, { setStatus, setSubmitting, setErrors }) => {
+    try {
+      setStatus({ success: false });
+      // Login logic
+      navigate('/');
+      setSubmitting(false);
+    } catch (err) {
+      setStatus({ success: false });
+      setErrors({ submit: err.message });
+      setSubmitting(false);
+    }
   };
 
   const loginButtonHandler = () => {
     navigate('/login');
   };
 
+  // Define validation schema with Yup
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Required'),
+    name: Yup.string().required('Required'),
+    role: Yup.string().required('Required'),
+  });
+
   return (
     <>
       <Formik
         initialValues={{
-          email: 'name@BHMS.com',
-          password: '123456',
-          submit: null
+          email: '',
+          name: '',
+          role: '',
         }}
-        validationSchema={Yup.object().shape({
-          email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-          password: Yup.string().max(255).required('Password is required'),
-          name: Yup.string().max(255).required('Name is required'),
-          role: Yup.string().max(255).required('Role is required')
-        })}
-        onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-          try {
-            setStatus({ success: false });
-            setSubmitting(false);
-          } catch (err) {
-            setStatus({ success: false });
-            setErrors({ submit: err.message });
-            setSubmitting(false);
-          }
-        }}
+        validationSchema={validationSchema} // Use validation schema
+        onSubmit={handleRequest}
       >
-        {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
+        {({ handleBlur, handleChange, handleSubmit, values, errors,isSubmitting, touched, setFieldValue }) => (
           <form noValidate onSubmit={handleSubmit}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
@@ -64,20 +51,15 @@ const RequestRegister = () => {
                   <InputLabel htmlFor="name-signup">Name*</InputLabel>
                   <OutlinedInput
                     id="name-login"
-                    type="name"
+                    type="text"
                     value={values.name}
                     name="name"
                     onBlur={handleBlur}
                     onChange={handleChange}
                     placeholder="First name Last name"
                     fullWidth
-                    error={Boolean(touched.name && errors.name)}
                   />
-                  {touched.name && errors.name && (
-                    <FormHelperText error id="helper-text-name-signup">
-                      {errors.name}
-                    </FormHelperText>
-                  )}
+                  {errors.name && touched.name && <FormHelperText error>{errors.name}</FormHelperText>}
                 </Stack>
               </Grid>
               <Grid item xs={12}>
@@ -92,13 +74,8 @@ const RequestRegister = () => {
                     onChange={handleChange}
                     placeholder="Enter email address"
                     fullWidth
-                    error={Boolean(touched.email && errors.email)}
                   />
-                  {touched.email && errors.email && (
-                    <FormHelperText error id="standard-weight-helper-text-email-login">
-                      {errors.email}
-                    </FormHelperText>
-                  )}
+                  {errors.email && touched.email && <FormHelperText error>{errors.email}</FormHelperText>}
                 </Stack>
               </Grid>
               <Grid item xs={12}>
@@ -106,37 +83,32 @@ const RequestRegister = () => {
                   <InputLabel htmlFor="role">Role*</InputLabel>
                   <Select
                     id="role"
-                    value={role}
+                    value={values.role}
                     onBlur={handleBlur}
-                    onChange={handleRoleChange}
+                    onChange={event => setFieldValue('role', event.target.value)}
                     placeholder="Select role"
                     fullWidth
-                    error={Boolean(touched.role && errors.role)}
                   >
                     <MenuItem value={"ADMIN"}>Admin</MenuItem>
                     <MenuItem value={"TENANT"}>Tenant</MenuItem>
                     <MenuItem value={"OWNER"}>Owner</MenuItem>
-                    <MenuItem value={"ACCOUNTANT"}>Accountant</MenuItem>
+                    <MenuItem value={"FINANCE"}>Finance</MenuItem>
                   </Select>
+                  {errors.role && touched.role && <FormHelperText error >{errors.role}</FormHelperText>}
                 </Stack>
               </Grid>
-              {errors.submit && (
-                <Grid item xs={12}>
-                  <FormHelperText error>{errors.submit}</FormHelperText>
-                </Grid>
-              )}
               <Grid item xs={12}>
-                <AnimateButton>
-                  <Button 
-                    disableElevation 
-                    disabled={isSubmitting} 
-                    fullWidth size="large" 
-                    type="submit" variant="contained" 
-                    color="primary"
-                    onClick={handleRequest}>
-                    Request
-                  </Button>
-                </AnimateButton>
+                <Button
+                  disableElevation
+                  fullWidth
+                  disabled={isSubmitting}
+                  size="large"
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                >
+                  Request
+                </Button>
               </Grid>
               <Grid item xs={12}>
                 <Divider>
@@ -144,21 +116,17 @@ const RequestRegister = () => {
                 </Divider>
               </Grid>
               <Grid item xs={12}>
-                {/* <FirebaseSocial /> */}
-                <AnimateButton>
-                  <Button
-                    disableElevation
-                    disabled={isSubmitting}
-                    onClick={loginButtonHandler}
-                    fullWidth
-                    size="large"
-                    type="button"
-                    variant="outlined"
-                    color="primary"
-                  >
-                    Login
-                  </Button>
-                </AnimateButton>
+                <Button
+                  disableElevation
+                  fullWidth
+                  size="large"
+                  type="button"
+                  variant="outlined"
+                  color="primary"
+                  onClick={loginButtonHandler}
+                >
+                  Login
+                </Button>
               </Grid>
             </Grid>
           </form>

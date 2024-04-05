@@ -39,10 +39,6 @@ const AuthLogin = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = () => {
-    navigate('/dashboard/default');
-  };
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -51,6 +47,19 @@ const AuthLogin = () => {
 
   const registerButtonHandler = () => {
     navigate('/register-request');
+  };
+
+  const handleLogin = async (values, { setErrors, setStatus, setSubmitting }) => {
+    try {
+      setStatus({ success: false });
+      // Add your login logic here. If login is successful, navigate to dashboard.
+      navigate('/dashboard/default');
+      setSubmitting(false);
+    } catch (err) {
+      setStatus({ success: false });
+      setErrors({ submit: err.message });
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -65,16 +74,7 @@ const AuthLogin = () => {
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
           password: Yup.string().max(255).required('Password is required')
         })}
-        onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-          try {
-            setStatus({ success: false });
-            setSubmitting(false);
-          } catch (err) {
-            setStatus({ success: false });
-            setErrors({ submit: err.message });
-            setSubmitting(false);
-          }
-        }}
+        onSubmit={handleLogin}
       >
         {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
           <form noValidate onSubmit={handleSubmit}>
@@ -169,7 +169,6 @@ const AuthLogin = () => {
                     type="submit"
                     variant="contained"
                     color="primary"
-                    onClick={handleLogin}
                   >
                     Login
                   </Button>

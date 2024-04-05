@@ -9,6 +9,7 @@ import { Box, Stack, Typography } from '../../../node_modules/@mui/material/inde
 
 const TenantsRegistration = () => {
   return (
+    
     <Stack direction={{ sm: 'column', md: 'row' }} display="flex" justifyContent="center" alignItems="center">
       <Box
         flex=".8"
