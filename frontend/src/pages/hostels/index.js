@@ -6,17 +6,17 @@ import { Grid, Typography } from '@mui/material';
 
 import { useState } from 'react';
 
-// project import
-import OrdersTable from './OrdersTable';
-import MainCard from 'components/MainCard';
+//       project import
+//import OrdersTable from './OrdersTable';
+//import MainCard from 'components/MainCard';
 import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
+import FilterTable from '../components-overview/HostelFilteringTable';
 
 // assets
 
 import { Button, Paper, Popover, TextField } from '../../../node_modules/@mui/material/index';
 
 // export popover
-
 
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
@@ -122,7 +122,8 @@ const HostelDashboard = () => {
 
       {/* row 3 */}
       <Grid item xs={12} md={7} lg={12}>
-        <Grid container alignItems="center" justifyContent="space-between">
+        <FilterTable />
+        {/* <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
             <Typography variant="h5">Recent Orders</Typography>
           </Grid>
@@ -130,7 +131,7 @@ const HostelDashboard = () => {
         </Grid>
         <MainCard sx={{ mt: 2 }} content={false}>
           <OrdersTable />
-        </MainCard>
+        </MainCard> */}
       </Grid>
       {/* <Grid item xs={12} md={5} lg={4}>
         <Grid container alignItems="center" justifyContent="space-between">
