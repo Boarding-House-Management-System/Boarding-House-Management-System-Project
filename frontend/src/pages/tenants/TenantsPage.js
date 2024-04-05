@@ -12,12 +12,15 @@ import TOPopup from '../components-overview/TenantOverviewPopup';
 import TenantDashBoardComp1 from 'pages/dashboard/TenentDashBoardComp1';
 import GenerateToken from './GenerateToken';
 
+// filter table
+import FilterTable from '../components-overview/TenantsFilteringTable';
+
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const TenantsPage = () => {
   // export popover
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const role='TENANT';
+  const role = 'TENANT';
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -32,6 +35,10 @@ const TenantsPage = () => {
 
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
+      <Grid item xs={12} md={12} lg={12}>
+        <FilterTable />
+      </Grid>
+
       {/* Search A Tenant */}
       <Grid item xs={12} md={12} lg={4}>
         <Paper sx={{ pl: 4, pr: 4 }}>
@@ -62,7 +69,7 @@ const TenantsPage = () => {
 
       <Grid item xs={12} md={12} lg={8}>
         <Paper sx={{ pl: 4, pr: 4 }}>
-        <Typography variant="h5" sx={{ pt: 2 }}>
+          <Typography variant="h5" sx={{ pt: 2 }}>
             Add a Tenant
           </Typography>
           <GenerateToken role={role} />
