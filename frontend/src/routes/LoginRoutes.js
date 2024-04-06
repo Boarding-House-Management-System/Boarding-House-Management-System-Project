@@ -9,6 +9,7 @@ const Land = Loadable(lazy(() => import('pages/landing/Landing')));
 const AuthLogin = Loadable(lazy(() => import('pages/authentication/Login')));
 const TenantReg = Loadable(lazy(() => import('pages/authentication/TenantsRegistration')));
 const TenantRegReq = Loadable(lazy(() => import('pages/authentication/RequestRegister')));
+const AdminReg = Loadable(lazy(() => import('pages/authentication/AdminRegistration')));
 
 // ==============================|| AUTH ROUTING ||============================== //
 
@@ -23,6 +24,10 @@ const LoginRoutes = {
     {
       path: 'tenant-register',
       element: <TenantReg />
+    },
+    {
+      path: 'admin-register',
+      element: <AdminReg />
     },
     {
       path: 'register-request',
