@@ -63,7 +63,7 @@ export default function DataTable() {
     </div>
   );
 }
-
+ 
 // v1.2
 // import * as React from 'react';
 // import { DataGrid } from '@mui/x-data-grid';

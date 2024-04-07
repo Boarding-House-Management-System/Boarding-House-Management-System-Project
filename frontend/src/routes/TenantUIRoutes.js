@@ -2,7 +2,8 @@ import { lazy } from 'react';
 
 // project import
 import Loadable from 'components/Loadable';
-import MinimalLayout from 'layout/MinimalLayout';
+//import MinimalLayout from 'layout/MinimalLayout';
+import TenantLayout from 'layout/MainLayout/TenantLayout';
 
 // render
 const TenantPage = Loadable(lazy(() => import('../pages/tenant-ui/TenantUI')));
@@ -11,7 +12,7 @@ const TenantPage = Loadable(lazy(() => import('../pages/tenant-ui/TenantUI')));
 
 const TenantUIRoutes = {
   path: '/',
-  element: <MinimalLayout />,
+  element: <TenantLayout />,
   children: [
     {
       path: '/TenantsUI',
