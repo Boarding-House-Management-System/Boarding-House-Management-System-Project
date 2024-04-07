@@ -9,7 +9,7 @@ import { useState } from 'react';
 //       project import
 //import OrdersTable from './OrdersTable';
 //import MainCard from 'components/MainCard';
-import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
+// import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
 import FilterTable from '../components-overview/HostelFilteringTable';
 
 // assets
@@ -22,10 +22,10 @@ import { Button, Paper, Popover, TextField } from '../../../node_modules/@mui/ma
 
 const HostelDashboard = () => {
   // const [value, setValue] = useState('today');
-  // const [slot, setSlot] = useState('week');
-  const revenue = 78000;
-  const expenses = 18800;
-  const profit = revenue - expenses;
+  // // const [slot, setSlot] = useState('week');
+  // const revenue = 78000;
+  // const expenses = 18800;
+  // const profit = revenue - expenses;
   const [floors, setFloors] = useState([]);
 
   const handleFloorsChange = (event) => {
@@ -50,9 +50,9 @@ const HostelDashboard = () => {
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
       <Grid item xs={12} sx={{ mb: -2.25 }}>
-        <Typography variant="h5">Dashboard</Typography>
+        <Typography variant="h5">Hostels</Typography>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      {/* <Grid item xs={12} sm={6} md={4} lg={3}>
         <AnalyticEcommerce title="Total Tenants" count="500" extra="35,000" />
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -63,7 +63,7 @@ const HostelDashboard = () => {
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={3}>
         <AnalyticEcommerce title="Total Profit" count={`${profit} LKR`} extra="$20,395" />
-      </Grid>
+      </Grid> */}
 
       {/* <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} /> */}
 
