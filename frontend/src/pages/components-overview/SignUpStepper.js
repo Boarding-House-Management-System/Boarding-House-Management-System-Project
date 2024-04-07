@@ -132,11 +132,11 @@ export default function HorizontalLinearStepper() {
               onClick={handleSubmit}
               sx={{
                 ml: 4,
-                color: isNextButtonDisabled ? 'black' : 'contained',
-                borderColor: isNextButtonDisabled ? 'darkgray' : 'contained',
-                backgroundColor: isNextButtonDisabled ? 'lightgray' : 'contained',
+                color: (isNextButtonDisabled && isSubmitButtonDisabled) ? 'black' : 'contained',
+                borderColor: (isNextButtonDisabled && isSubmitButtonDisabled) ? 'darkgray' : 'contained',
+                backgroundColor: (isNextButtonDisabled && isSubmitButtonDisabled) ? 'lightgray' : 'contained',
                 '&:hover': {
-                  backgroundColor: isNextButtonDisabled ? 'lightgray' : 'contained'
+                  backgroundColor: (isNextButtonDisabled && isSubmitButtonDisabled) ? 'lightgray' : 'contained'
                 },
                 '&:disabled': {
                   cursor: 'not-allowed'
