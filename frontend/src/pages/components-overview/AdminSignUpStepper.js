@@ -18,7 +18,6 @@ export default function HorizontalLinearStepper() {
     NIC: '',
     Address: '',
     Telephone: '',
-    Role: ''
   });
 
   const [form2State, setForm2State] = useState({
@@ -32,11 +31,11 @@ export default function HorizontalLinearStepper() {
   const [isSubmitButtonDisabled, setIsSubmitButtonDisabled] = useState(true);
 
   const validateForm1 = () => {
-    const { FullName, NIC, Address, Telephone, Role } = form1State;
+    const { FullName, NIC, Address, Telephone} = form1State;
     const nicRegex = /^[0-9]{9}[vVxX]$|^[0-9]{12}$/;
     const telephoneRegex = /^[0][0-9]{9}$/;
 
-    if (!FullName || !NIC || !Address || !Telephone || !Role) {
+    if (!FullName || !NIC || !Address || !Telephone ) {
       return false;
     }
 

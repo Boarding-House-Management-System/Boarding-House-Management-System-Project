@@ -1,16 +1,16 @@
 import React from 'react';
 import { Paper, TextField, Typography } from '@mui/material';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select from '@mui/material/Select';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
 
 const TenantSignUp1 = ({ form1State, setForm1State }) => {
-  const [age, setAge] = React.useState('');
+  // const [age, setAge] = React.useState('');
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setAge(event.target.value);
+  // };
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -87,7 +87,7 @@ const TenantSignUp1 = ({ form1State, setForm1State }) => {
           variant="outlined"
         />
 
-        <FormControl
+        {/* <FormControl
           required
           fullWidth
           sx={{ mt: 2 }}
@@ -102,7 +102,7 @@ const TenantSignUp1 = ({ form1State, setForm1State }) => {
             <MenuItem value={20}>Admin</MenuItem>
             <MenuItem value={30}>Finance</MenuItem>
           </Select>
-        </FormControl>
+        </FormControl> */}
       </Paper>
     </div>
   );
