@@ -47,13 +47,6 @@ const dashboard = {
       url: '/finance',
       icon: icons.RiseOutlined,
       breadcrumbs: false
-    },{
-      id: 'dashboardTenant',
-      title: 'tenant Dashboard',
-      type: 'item',
-      url: '/DashboardTenant',
-      icon: icons.RiseOutlined,
-      breadcrumbs: false
     }
   ]
 };

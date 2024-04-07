@@ -4,7 +4,6 @@ import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout';
 import HostelDashboard from 'pages/hostels/index';
-import TenantDashBoardComp1 from 'pages/dashboard/TenentDashBoardComp1';
 
 // render - dashboard
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
@@ -74,9 +73,6 @@ const MainRoutes = {
     {
       path: 'tenants',
       element: <Tenants />
-    },{
-      path :'dashboardTenant',
-      element:<TenantDashBoardComp1/>
     }
   ]
 };
