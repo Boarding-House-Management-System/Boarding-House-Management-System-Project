@@ -10,11 +10,10 @@ import { Button, Grid, Paper, Popover, TextField } from '../../../node_modules/@
 import TOPopup from '../components-overview/TenantOverviewPopup';
 
 import TenantDashBoardComp1 from 'pages/dashboard/TenentDashBoardComp1';
-import GenerateToken from './GenerateToken';
+import GenerateToken from '../components-overview/GenerateToken';
 
 // filter table
 import FilterTable from '../components-overview/TenantsFilteringTable';
-import PaymentFilterTable from '../components-overview/PaymentFilteringTable';
 
 // ==============================|| SAMPLE PAGE ||============================== //
 
@@ -78,9 +77,6 @@ const TenantsPage = () => {
       </Grid>
       <Grid item xs={12} md={12} lg={12}>
         <TenantDashBoardComp1 />
-      </Grid>
-      <Grid item xs={12} md={12} lg={12}>
-        <PaymentFilterTable />
       </Grid>
     </Grid>
   );

@@ -38,9 +38,9 @@ const TenantRequests = () => {
   const openTenantComplains = Boolean(anchorElTenantComplains);
 
   return (
-    <Grid container spacing={2} sx={{ mt: 2, ml: 2 }}>
+    <Grid container rowSpacing={4.5} columnSpacing={2.75} mt={6} mb={6}>
       <Grid item xs={12} lg={4} sm={6} md={4}>
-        <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: 300 }}>
           <Button onClick={handleClickLateRequest} variant="contained" sx={{ width: '100%' }}>
             Submit Your Late Arrival Request
           </Button>
@@ -55,16 +55,11 @@ const TenantRequests = () => {
           >
             <LateRequest />
           </Popover>
-          <CardMedia
-            component="img"
-            height="400"
-            image="/Late.png"
-            alt="Image 1"
-          />
+          <CardMedia component="img" height="250" image="/Late.png" alt="Image 1" />
         </Card>
       </Grid>
       <Grid item xs={12} lg={4} sm={6} md={4}>
-        <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: 300 }}>
           <Button onClick={handleClickPaymentRecipt} variant="contained" sx={{ width: '100%' }}>
             Upload Your Payment Receipt
           </Button>
@@ -79,16 +74,11 @@ const TenantRequests = () => {
           >
             <PaymentRecipt />
           </Popover>
-          <CardMedia
-            component="img"
-            height="400"
-            image="/Payment.png"
-            alt="Image 2"
-          />
+          <CardMedia component="img" height="250" image="/Payment.png" alt="Image 2" />
         </Card>
       </Grid>
       <Grid item xs={12} lg={4} sm={6} md={4}>
-        <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Card sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: 300 }}>
           <Button onClick={handleClickTenantComplains} variant="contained" sx={{ width: '100%' }}>
             Submit Your Complaints
           </Button>
@@ -103,12 +93,7 @@ const TenantRequests = () => {
           >
             <TenantComplains />
           </Popover>
-          <CardMedia
-            component="img"
-            height="400"
-            image="/complain.png"
-            alt="Image 3"
-          />
+          <CardMedia component="img" height="250" image="/complain.png" alt="Image 3" />
         </Card>
       </Grid>
     </Grid>

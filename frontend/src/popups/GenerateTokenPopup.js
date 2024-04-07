@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dialog, DialogContent, Typography, Box } from '@mui/material';
-import GenerateToken from 'pages/tenants/GenerateToken';
+import GenerateToken from 'pages/components-overview/GenerateToken';
 
 export default function GenerateTokenPopup({ email, openDialog, handleClosedDialog, role }) {
   //   const [openDialog, setOpenDialog] = useState(false);
@@ -17,7 +17,7 @@ export default function GenerateTokenPopup({ email, openDialog, handleClosedDial
             <Typography variant="h5" sx={{ pt: 2 }}>
               {role === 'TENANT' ? 'Add a Tenant' : 'Add a Staff'}
             </Typography>
-            <Typography variant="h5" sx={{ pt: 2, pl:1 }}>
+            <Typography variant="h5" sx={{ pt: 2, pl: 1 }}>
               {role === 'TENANT'
                 ? ''
                 : role === 'ADMIN'
