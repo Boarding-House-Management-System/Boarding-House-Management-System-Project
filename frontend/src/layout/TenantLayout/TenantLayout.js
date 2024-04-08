@@ -8,12 +8,13 @@ import { Box, Toolbar, useMediaQuery } from '@mui/material';
 
 // project import
 //import Drawer from './Drawer';
-import Header from './Header';
+import Header from './../MainLayout/Header';
 import navigation from 'menu-items';
 import Breadcrumbs from 'components/@extended/Breadcrumbs';
 
 // types
 import { openDrawer } from 'store/reducers/menu';
+//import TenantHeader from 'layout/MainLayout/Header/TenantHeader';
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
@@ -26,10 +27,10 @@ const TenantLayout = () => {
 
   // drawer toggler
   const [open, setOpen] = useState(drawerOpen);
-  const handleDrawerToggle = () => {
-    setOpen(!open);
-    dispatch(openDrawer({ drawerOpen: !open }));
-  };
+  // const handleDrawerToggle = () => {
+  //   setOpen(!open);
+  //   dispatch(openDrawer({ drawerOpen: !open }));
+  // };
 
   // set media wise responsive drawer
   useEffect(() => {
@@ -46,7 +47,7 @@ const TenantLayout = () => {
 
   return (
     <Box sx={{ display: 'flex', width: '100%' }}>
-      <Header open={open} handleDrawerToggle={handleDrawerToggle} />
+      <Header open={open}   handleDrawerToggle={()=>{}} />
      
       <Box component="main" sx={{ width: '100%', flexGrow: 1, p: { xs: 2, sm: 3 } }}>
         <Toolbar />
