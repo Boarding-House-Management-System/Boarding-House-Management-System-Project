@@ -9,7 +9,6 @@ import { Button, Grid, Paper, Popover, TextField } from '../../../node_modules/@
 // test import
 import TOPopup from '../components-overview/TenantOverviewPopup';
 
-import TenantDashBoardComp1 from 'pages/dashboard/TenentDashBoardComp1';
 import GenerateToken from '../components-overview/GenerateToken';
 
 // filter table
@@ -74,9 +73,6 @@ const TenantsPage = () => {
           </Typography>
           <GenerateToken role={role} />
         </Paper>
-      </Grid>
-      <Grid item xs={12} md={12} lg={12}>
-        <TenantDashBoardComp1 />
       </Grid>
     </Grid>
   );
