@@ -5,12 +5,14 @@ import {
   Box,
   Grid,
   Stack,
-  Typography
+  Typography,
+  Paper
 } from '@mui/material';
 
 // project import
 import MainCard from 'components/MainCard';
 import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
+import GenerateToken from 'pages/components-overview/GenerateToken';
 
 // assets
 import TenantReq from './TenantReq';
@@ -57,6 +59,7 @@ const DashboardDefault = () => {
   // const revenue = 78000;
   // const expenses = 18800;
   // const profit = revenue - expenses;
+  const role = "TENANT";
 
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
@@ -152,6 +155,15 @@ const DashboardDefault = () => {
           <TenantReq />
 
         </MainCard>
+      </Grid>
+
+      <Grid item xs={12} md={12} lg={8}>
+        <Paper sx={{ pl: 4, pr: 4 }}>
+          <Typography variant="h5" sx={{ pt: 2 }}>
+            Add a Member
+          </Typography>
+          <GenerateToken role={role} />
+        </Paper>
       </Grid>
 
       {/* row 3 */}
