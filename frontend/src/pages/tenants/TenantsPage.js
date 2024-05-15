@@ -9,7 +9,7 @@ import { Button, Grid, Paper, Popover, TextField } from '../../../node_modules/@
 // test import
 import TOPopup from '../components-overview/TenantOverviewPopup';
 
-import GenerateToken from '../components-overview/GenerateToken';
+//import GenerateToken from '../components-overview/GenerateToken';
 
 // filter table
 import FilterTable from '../components-overview/TenantsFilteringTable';
@@ -19,7 +19,7 @@ import FilterTable from '../components-overview/TenantsFilteringTable';
 const TenantsPage = () => {
   // export popover
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const role = 'TENANT';
+  //const role = 'TENANT';
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -39,7 +39,7 @@ const TenantsPage = () => {
       </Grid>
 
       {/* Search A Tenant */}
-      <Grid item xs={12} md={12} lg={4}>
+      <Grid item xs={12} md={12} lg={12}>
         <Paper sx={{ pl: 4, pr: 4 }}>
           <Typography variant="h5" sx={{ pt: 2 }}>
             Search a Tenant
@@ -66,14 +66,14 @@ const TenantsPage = () => {
         </Paper>
       </Grid>
 
-      <Grid item xs={12} md={12} lg={8}>
+      {/* <Grid item xs={12} md={12} lg={8}>
         <Paper sx={{ pl: 4, pr: 4 }}>
           <Typography variant="h5" sx={{ pt: 2 }}>
             Add a Tenant
           </Typography>
           <GenerateToken role={role} />
         </Paper>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };
