@@ -38,73 +38,9 @@ frontend/.lock-wscript
 frontend/build/Release
 
 # Dependency directories
-frontend/node_modules/
+*/node_modules/
 frontend/jspm_packages/
 
-# TypeScript v1 declaration files
-frontend/typings/
+*/.env
 
-# TypeScript cache
-frontend/*.tsbuildinfo
 
-# Optional npm cache directory
-frontend/.npm
-
-# Optional eslint cache
-frontend/.eslintcache
-
-# Microbundle cache
-frontend/.rpt2_cache/
-frontend/.rts2_cache_cjs/
-frontend/.rts2_cache_es/
-frontend/.rts2_cache_umd/
-
-# Optional REPL history
-frontend/.node_repl_history
-
-# Output of 'npm pack'
-frontend/*.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-# dotenv environment variables file
-# .env
-.env.test
-
-# parcel-bundler cache (https://parceljs.org/)
-.cache
-
-# Next.js build output
-.next
-
-# Nuxt.js build / generate output
-.nuxt
-dist
-
-# Gatsby files
-.cache/
-# Comment in the public line in if your project uses Gatsby and *not* Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
-
-# vuepress build output
-.vuepress/dist
-
-# Serverless directories
-.serverless/
-
-# FuseBox cache
-.fusebox/
-
-# DynamoDB Local files
-.dynamodb/
-
-# TernJS port file
-.tern-port
-
-# Backup file
-*.bak
-
-#output
-build

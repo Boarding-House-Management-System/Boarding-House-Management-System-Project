@@ -23,8 +23,8 @@ const TenantSignUp1 = ({ form1State, setForm1State }) => {
       newState[`${id}Error`] = 'This field is required';
     } else if (id === 'NIC' && !/^[0-9]{9}[vVxX]$|^[0-9]{12}$/.test(value)) {
       newState[`${id}Error`] = 'Invalid NIC';
-    } else if (id === 'Telephone' && !/^[0][0-9]{9}$/.test(value)) {
-      newState[`${id}Error`] = 'Invalid Telephone number. Ex: 0712345678';
+    } else if (id === 'Telephone' && !/^(?:0[0-9]{9}|\+94[0-9]{9}|[1-9][0-9]{8})$/.test(value)) {
+      newState[`${id}Error`] = 'Invalid Telephone number.';
     } else {
       newState[`${id}Error`] = '';
     }
