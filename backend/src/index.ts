@@ -24,13 +24,13 @@ connection.connect((err) => {
     return;
   }
   console.log("Connected to database.");
-  connection.query(`SHOW DATABASES`,
-  function (err, result) {
-      if (err)
-          console.log(`Error executing the query - ${err}`)
-      else
-          console.log("Result: ", result)
-  });
+  // connection.query(`SHOW DATABASES`,
+  // function (err, result) {
+  //     if (err)
+  //         console.log(`Error executing the query - ${err}`)
+  //     else
+  //         console.log("Result: ", result)
+  // });
 });
 
 app.use(authRouter);
