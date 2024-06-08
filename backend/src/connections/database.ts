@@ -1,19 +1,20 @@
 import mysql from "mysql";
+import dotenv from 'dotenv';
+// import { Sequelize } from "sequelize";
 
-const database = async()=>{
-    const connection = await mysql.createConnection({
-      host: "localhost",
-      user: process.env.SQL_user,
-      password: process.env.SQL_password,
-      database: "bhms"
-    });
-    connection.connect((err) => {
-        if (err) {
-        console.error("Database connection failed: " + err.stack);
-        return;
-        }
-        console.log("Connected to database.");
-    });
-}
+dotenv.config(); 
 
-export default database;
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: process.env.SQL_user,
+  password: process.env.SQL_password,
+  database: "bhms",
+});
+
+// export const sequelize = new Sequelize('database', 'username', 'password', {
+//     host: 'localhost',
+//     dialect: 'mysql'
+//   });
+
+export default connection; 
+
