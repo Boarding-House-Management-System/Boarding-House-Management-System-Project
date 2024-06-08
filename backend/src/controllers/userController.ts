@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import mySql from "mysql";
 import User from "../models/User";
-import { UserStatus } from "../constants";
+import { Roles, UserStatus } from "../constants";
 
 export const createUser = async (req: Request, res: Response) => {
   const { email, name, role } = req.body;
@@ -24,5 +24,17 @@ export const createUser = async (req: Request, res: Response) => {
       .json({ message: "Requested successfully", user: newUser });
   } catch (error) {
     return res.status(400).json({ message: "Failed to request", error });
+  }
+};
+
+export const getTenantRequests = async (req: Request, res: Response) => {
+  try {
+    const users = await User.findAll({
+      where: { user_status: UserStatus.Pending , role: Roles.Tenant},
+    });
+
+    return res.status(200).json({ users });
+  } catch (error) {
+    return res.status(400).json({ message: "Failed to fetch requests", error });
   }
 };
