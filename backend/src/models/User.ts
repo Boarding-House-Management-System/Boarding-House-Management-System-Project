@@ -1,5 +1,6 @@
 import { UserStatus } from "../constants";
-// import sequelize from '../connections/database'
+import sequelize from '../connections/database'
+import { DataTypes } from 'sequelize';
 
 const User = sequelize.define('User', {
   email: {
@@ -14,8 +15,7 @@ const User = sequelize.define('User', {
   user_status: { 
     type: DataTypes.STRING,
     allowNull: true,
-    default: UserStatus.Pending
-  },
-});
+  } 
+},{timestamps: false});
 
-module.exports = User;
+export default User;
