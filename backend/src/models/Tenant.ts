@@ -1,6 +1,19 @@
+import { Model } from "sequelize";
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+import sequelize from '../connections/database'
 const bcrypt = require('bcryptjs');
+
+export interface ITenant extends Model{
+  full_name: string;
+  user_email: string;
+  password: string;
+  room_id: number;
+  last_payment_month: number;
+  NIC: string;
+  address: string;
+  guardian_id: number;
+  phone_no: string;
+}
 
 const Tenant = sequelize.define('Tenant', {
   full_name: {
@@ -42,4 +55,4 @@ const Tenant = sequelize.define('Tenant', {
   },
 },{timestamps: false});
 
-module.exports = Tenant;
+export default Tenant;

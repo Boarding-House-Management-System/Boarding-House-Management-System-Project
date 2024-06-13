@@ -112,7 +112,7 @@ export const generateRegistrationLink = async (req: Request, res: Response) => {
       expiresIn: "1h",
       });
 
-    const registrationLink = `${process.env.BACKEND_BASE_URL}/register?token=${token}`;
+    const registrationLink = `${process.env.BACKEND_BASE_URL}/auth/register?token=${token}`;
     res
       .status(200)
       .json({ message: "Link generated successfully", registrationLink });
