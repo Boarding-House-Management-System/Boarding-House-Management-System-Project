@@ -7,7 +7,9 @@ import MinimalLayout from 'layout/MinimalLayout';
 // render - login
 const Land = Loadable(lazy(() => import('pages/landing/Landing')));
 const AuthLogin = Loadable(lazy(() => import('pages/authentication/Login')));
-const AuthRegister = Loadable(lazy(() => import('pages/authentication/Register')));
+const TenantReg = Loadable(lazy(() => import('pages/authentication/TenantsRegistration')));
+const TenantRegReq = Loadable(lazy(() => import('pages/authentication/RequestRegister')));
+const AdminReg = Loadable(lazy(() => import('pages/authentication/AdminRegistration')));
 
 // ==============================|| AUTH ROUTING ||============================== //
 
@@ -16,16 +18,24 @@ const LoginRoutes = {
   element: <MinimalLayout />,
   children: [
     {
-      path: 'home',
+      path: '/',
       element: <Land />
+    },
+    {
+      path: 'tenant-register',
+      element: <TenantReg />
+    },
+    {
+      path: 'admin-register',
+      element: <AdminReg />
+    },
+    {
+      path: 'register-request',
+      element: <TenantRegReq />
     },
     {
       path: 'login',
       element: <AuthLogin />
-    },
-    {
-      path: 'register',
-      element: <AuthRegister />
     }
   ]
 };

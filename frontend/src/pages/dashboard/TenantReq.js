@@ -6,7 +6,8 @@ import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography } from '@mui/material';
+import GenerateTokenPopup from 'popups/GenerateTokenPopup';
+// import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography } from '@mui/material';
 
 const tenantData = [
   { name: 'Shavidika Ekanayake', email: 'shavidika.ekanayake@gmail.com', phone: '071 123 4567' },
@@ -17,12 +18,15 @@ const tenantData = [
 
 export default function TenantReq() {
   const [openDialog, setOpenDialog] = useState(false);
-  const [selectedTenant, setSelectedTenant] = useState('');
+  const [email, setEmail] = useState('');
   const [tenants, setTenants] = useState(tenantData);
+  const [role, setRole] = useState('TENANT');
+  
 
   const handleSelectedTenant = (email) => {
     setOpenDialog(true);
-    setSelectedTenant(email);
+    setEmail(email);
+    setRole('TENANT');
   };
 
   const handleClosedDialog = () => {
@@ -62,22 +66,8 @@ export default function TenantReq() {
           ))
         )}
       </Paper>
-      <Dialog open={openDialog} onClose={handleClosedDialog}>
-        <DialogTitle>Add a new Tenant</DialogTitle>
-        <DialogContent>
-          <Typography>Please generate a token</Typography>
-          <Button variant="contained" color="primary">
-            Generate Token
-          </Button>
-          <Typography>Send generated token to:</Typography>
-          <TextField value={selectedTenant} />
-        </DialogContent>
-        <DialogActions>
-          <Button variant="contained" color="primary" onClick={handleClosedDialog}>
-            Send
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <GenerateTokenPopup email={email} openDialog={openDialog} handleClosedDialog={handleClosedDialog} role={role} />
+
     </Box>
   );
 }

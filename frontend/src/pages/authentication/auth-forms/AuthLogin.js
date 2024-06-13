@@ -44,11 +44,23 @@ const AuthLogin = () => {
   };
 
   const navigate = useNavigate();
-  const useRegisterButton = () => {
-    navigate('/register');
+
+  const registerButtonHandler = () => {
+    navigate('/register-request');
   };
 
-  const registerButtonHandler = useRegisterButton();
+  const handleLogin = async (values, { setErrors, setStatus, setSubmitting }) => {
+    try {
+      setStatus({ success: false });
+      // Add your login logic here. If login is successful, navigate to dashboard.
+      navigate('/dashboard/default');
+      setSubmitting(false);
+    } catch (err) {
+      setStatus({ success: false });
+      setErrors({ submit: err.message });
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -62,16 +74,7 @@ const AuthLogin = () => {
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
           password: Yup.string().max(255).required('Password is required')
         })}
-        onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
-          try {
-            setStatus({ success: false });
-            setSubmitting(false);
-          } catch (err) {
-            setStatus({ success: false });
-            setErrors({ submit: err.message });
-            setSubmitting(false);
-          }
-        }}
+        onSubmit={handleLogin}
       >
         {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
           <form noValidate onSubmit={handleSubmit}>
@@ -158,7 +161,15 @@ const AuthLogin = () => {
               )}
               <Grid item xs={12}>
                 <AnimateButton>
-                  <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">
+                  <Button
+                    disableElevation
+                    disabled={isSubmitting}
+                    fullWidth
+                    size="large"
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                  >
                     Login
                   </Button>
                 </AnimateButton>
@@ -172,8 +183,8 @@ const AuthLogin = () => {
                 {/* <FirebaseSocial /> */}
                 <AnimateButton>
                   <Button
-                    disableElevation
-                    disabled={isSubmitting}
+                    // disableElevation
+                    // disabled={isSubmitting}
                     onClick={registerButtonHandler}
                     fullWidth
                     size="large"

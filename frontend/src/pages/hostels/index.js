@@ -1,28 +1,31 @@
-// import { useState } from 'react';
+import React from 'react';
+import ROPopup from '../components-overview/RoomOverviewPopup';
 
 // material-ui
 import { Grid, Typography } from '@mui/material';
 
 import { useState } from 'react';
 
-// project import
-import OrdersTable from './OrdersTable';
-import MainCard from 'components/MainCard';
-import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
+//       project import
+//import OrdersTable from './OrdersTable';
+//import MainCard from 'components/MainCard';
+// import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
+import FilterTable from '../components-overview/HostelFilteringTable';
 
 // assets
 
-import { Button, Paper, TextField } from '../../../node_modules/@mui/material/index';
+import { Button, Paper, Popover, TextField } from '../../../node_modules/@mui/material/index';
 
+// export popover
 
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
 const HostelDashboard = () => {
   // const [value, setValue] = useState('today');
-  // const [slot, setSlot] = useState('week');
-  const revenue = 78000;
-  const expenses = 18800;
-  const profit = revenue - expenses;
+  // // const [slot, setSlot] = useState('week');
+  // const revenue = 78000;
+  // const expenses = 18800;
+  // const profit = revenue - expenses;
   const [floors, setFloors] = useState([]);
 
   const handleFloorsChange = (event) => {
@@ -30,12 +33,26 @@ const HostelDashboard = () => {
     setFloors(Array.from({ length: floorCount }, (_, i) => i + 1));
   };
 
+  // export popover
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
       <Grid item xs={12} sx={{ mb: -2.25 }}>
-        <Typography variant="h5">Dashboard</Typography>
+        <Typography variant="h5">Hostels</Typography>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      {/* <Grid item xs={12} sm={6} md={4} lg={3}>
         <AnalyticEcommerce title="Total Tenants" count="500" extra="35,000" />
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -46,7 +63,7 @@ const HostelDashboard = () => {
       </Grid>
       <Grid item xs={12} sm={6} md={4} lg={3}>
         <AnalyticEcommerce title="Total Profit" count={`${profit} LKR`} extra="$20,395" />
-      </Grid>
+      </Grid> */}
 
       {/* <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} /> */}
 
@@ -105,7 +122,8 @@ const HostelDashboard = () => {
 
       {/* row 3 */}
       <Grid item xs={12} md={7} lg={12}>
-        <Grid container alignItems="center" justifyContent="space-between">
+        <FilterTable />
+        {/* <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
             <Typography variant="h5">Recent Orders</Typography>
           </Grid>
@@ -113,7 +131,7 @@ const HostelDashboard = () => {
         </Grid>
         <MainCard sx={{ mt: 2 }} content={false}>
           <OrdersTable />
-        </MainCard>
+        </MainCard> */}
       </Grid>
       {/* <Grid item xs={12} md={5} lg={4}>
         <Grid container alignItems="center" justifyContent="space-between">
@@ -152,9 +170,21 @@ const HostelDashboard = () => {
             <br />
             <TextField sx={{ mt: 2 }} id="RoomID" label="Room ID " variant="outlined" />
           </form>
-          <Button sx={{ mt: 2, mb: 2 }} variant="contained">
+          <Button sx={{ mt: 2, mb: 2 }} variant="contained" onClick={handleClick}>
             Search
           </Button>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left'
+            }}
+          >
+            <ROPopup />
+          </Popover>
         </Paper>
       </Grid>
 
