@@ -31,11 +31,11 @@ const Tenant = sequelize.define('Tenant', {
   },
   room_id: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true
   },
   last_payment_month: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: true
   },
   NIC: {
     type: DataTypes.STRING,

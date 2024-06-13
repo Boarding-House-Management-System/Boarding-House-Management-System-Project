@@ -22,8 +22,6 @@ const registerUser = async (req: Request, res: Response) => {
       const {
         full_name,
         password,
-        room_id,
-        last_payment_month,
         NIC,
         address,
         guardian_id,
@@ -33,6 +31,11 @@ const registerUser = async (req: Request, res: Response) => {
       const userExist = (await Tenant.findOne({
         where: { user_email: email },
       })) as ITenant;
+      const room_id = 1; // default room_id 
+
+      const date = new Date();
+      const last_payment_month = date.getMonth()+1;
+
       if (userExist) {
         return res.status(409).json({ message: "User already registered." });
       } else {
