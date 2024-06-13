@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
 import mySql from "mysql";
-import User from "../models/User";
+import User, { IUser } from "../models/User";
 import { Roles, UserStatus } from "../constants";
 import { Op } from "sequelize";
+import { generateToken } from "../utils/auth";
+import jwt from "jsonwebtoken";
 
 export const createUser = async (req: Request, res: Response) => {
   const { email, name, role } = req.body;
@@ -72,5 +74,49 @@ export const deleteRequest = async (req: Request, res: Response) => {
     return res.status(200).json({ message: "Request deleted" });
   } catch (error) {
     return res.status(400).json({ message: "Failed to delete request", error });
+  }
+};
+
+export const generateRegistrationLink = async (req: Request, res: Response) => {
+  const { email, role } = req.body;
+  const user_status = UserStatus.Pending;
+
+  try {
+    if (!email || !role) {
+      return res
+        .status(400)
+        .json({ message: "Can not generate link without email and role." });
+    }
+    let user = (await User.findOne({ where: { email } })) as IUser;
+
+    if (!user) {
+      user = (await User.create({ email, role, user_status })) as IUser;
+    }
+
+    if (user.user_status === "REGISTERED") {
+      return res.status(400).json({ message: "User already registered" });
+    }
+
+    const updatedUser = await User.update(
+      { user_status: UserStatus.TokenGenerated, role: role },
+      { where: { email } }
+    );
+
+    if (!updatedUser) {
+      return res.status(400).json({ message: "Failed to update user" });
+    }
+
+    const jwtSecret = process.env.JWT_SECRET || "";
+
+    const token = jwt.sign({ email, role }, jwtSecret, {
+      expiresIn: "1h",
+      });
+
+    const registrationLink = `${process.env.BACKEND_BASE_URL}/register?token=${token}`;
+    res
+      .status(200)
+      .json({ message: "Link generated successfully", registrationLink });
+  } catch (error) {
+    return res.status(400).json({ message: "Failed to generate link", error });
   }
 };

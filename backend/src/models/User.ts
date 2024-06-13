@@ -1,6 +1,13 @@
 import { UserStatus } from "../constants";
 import sequelize from '../connections/database'
-import { DataTypes } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
+
+export interface IUser extends Model{
+  email: string;
+  name: string;
+  role: string;
+  user_status: UserStatus;
+}
 
 const User = sequelize.define('User', {
   email: {
@@ -10,7 +17,7 @@ const User = sequelize.define('User', {
   },
   name:{
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   role: {
     type: DataTypes.STRING,
