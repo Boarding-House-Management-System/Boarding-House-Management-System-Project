@@ -25,16 +25,16 @@ function Landing() {
               sx={{ fontSize: 18, fontWeight: 700, width: '170px', textTransform: 'none' }}
               onClick={handleLogin}
             >
-              Login as a Tenant
+              Login
             </Button>
-            <Button
+            {/* <Button
               variant="outlined"
               width="12px"
               sx={{ fontSize: 18, fontWeight: 700, width: '170px', textTransform: 'none' }}
               onClick={handleLogin}
             >
               Login as an Admin
-            </Button>
+            </Button> */}
           </Stack>
         </Stack>
       </Box>
